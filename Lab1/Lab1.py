@@ -35,13 +35,13 @@ if __name__ == '__main__':
     show("central part", central_part)
 
     new_height = 600
-    ratio = w/h
-    new_width = int(new_height*ratio)
+    ratio = w / h
+    new_width = int(new_height * ratio)
 
     resized_img = cv2.resize(img, (new_width, new_height))
     show('resized', resized_img)
 
-    center = (w//2, h//2)
+    center = (w // 2, h // 2)
     M = cv2.getRotationMatrix2D(center, -45, 1.0)
     rotated = cv2.warpAffine(img, M, (w, h))
     show("OpenCV Rotation", rotated)
@@ -58,9 +58,6 @@ if __name__ == '__main__':
     show_m([("Blurred (5x5)", blurred5), ("Blurred (11x11)", blurred11), ("Blurred (15x15)", blurred15),
             ("Blurred (21x21)", blurred21), ("Blurred (51x51)", blurred51), ("Blurred (91x91)", blurred91)])
 
-    #suming = np.dstack((np.hstack((blurred5, blurred11)), np.hstack((blurred15, blurred21)), np.hstack((blurred51, blurred91))))
-    #show("suming", suming)
-
     img_for_drawing = img.copy()
     cv2.rectangle(img_for_drawing, (120, 300), (200, 370), (0, 0, 255), 2)
     show('rectangle', img_for_drawing)
@@ -75,7 +72,7 @@ if __name__ == '__main__':
     show('circle', img_for_drawing)
 
     img_for_drawing = img.copy()
-    star_points = np.array ([[290, 155], [350, 340], [195, 225], [380, 225], [230, 340]])
+    star_points = np.array([[290, 155], [350, 340], [195, 225], [380, 225], [230, 340]])
     cv2.polylines(img_for_drawing, np.int32([star_points]), 1, (255, 0, 0), 5)
     show('star', img_for_drawing)
 

@@ -1,6 +1,5 @@
 import cv2
 
-
 if __name__ == '__main__':
     face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
     cv2.startWindowThread()
