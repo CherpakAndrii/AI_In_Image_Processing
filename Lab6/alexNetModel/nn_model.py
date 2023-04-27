@@ -37,7 +37,7 @@ def AlexNet(class_number) -> Sequential:
 def compile_model(model: Sequential):
     model.compile(
         loss='sparse_categorical_crossentropy',
-        optimizer=tf.optimizers.SGD(lr=0.001),
+        optimizer=tf.optimizers.SGD(learning_rate=0.001),
         metrics=['accuracy']
     )
     model.summary()

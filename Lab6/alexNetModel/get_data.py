@@ -2,6 +2,7 @@ import tensorflow as tf
 from tensorflow import keras
 import matplotlib.pyplot as plt
 from tensorflow.python.data.ops.dataset_ops import DatasetV1
+from numpy import ndarray
 
 
 def get_data() -> tuple[DatasetV1, DatasetV1, DatasetV1]:
@@ -16,7 +17,7 @@ def get_data() -> tuple[DatasetV1, DatasetV1, DatasetV1]:
     return train_ds, test_ds, validation_ds
 
 
-def visualize_data(train_ds: DatasetV1, classes: list[str]):
+def visualize_data(train_ds: DatasetV1, classes: list[str]) -> None:
     plt.figure(figsize=(20, 20))
     for i, (image, label) in enumerate(train_ds.take(10)):
         ax = plt.subplot(5, 5, i + 1)
@@ -27,7 +28,7 @@ def visualize_data(train_ds: DatasetV1, classes: list[str]):
     plt.show()
 
 
-def process_images(image, label):
+def process_images(image: ndarray, label: str) -> tuple[ndarray, str]:
     # Normalize images to have a mean of 0 and standard deviation of 1
     image = tf.image.per_image_standardization(image)
     # Resize images from 32x32 to 277x277

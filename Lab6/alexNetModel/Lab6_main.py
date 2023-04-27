@@ -1,4 +1,4 @@
-from get_data import *
+from get_data import get_data, process_ds, get_ds_size, visualize_data
 from nn_model import AlexNet, compile_model
 
 CLASS_NAMES = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
@@ -24,5 +24,6 @@ if __name__ == '__main__':
 
     model.fit(train_ds, epochs=10, validation_data=validation_ds, validation_freq=1)
     model.evaluate(test_ds)
+    model.summary()
 
     model.save('alexNet.h5')
