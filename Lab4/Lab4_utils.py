@@ -8,7 +8,7 @@ face_detector = dlib.get_frontal_face_detector()
 shape_predictor = dlib.shape_predictor("models/shape_predictor_68_face_landmarks.dat")
 face_encoder = dlib.face_recognition_model_v1("models/dlib_face_recognition_resnet_model_v1.dat")
 
-VALID_EXTENSIONS = ['.jpg', 'jpeg']
+VALID_EXTENSIONS = ['.jpg', '.jpeg']
 
 
 def get_image_paths(root_dir, class_names):

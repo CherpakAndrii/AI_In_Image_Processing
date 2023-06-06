@@ -6,9 +6,10 @@ with open("encodings.pickle", "rb") as f:
 imagePoroshenko = cv2.imread("examples/1.jpg")
 imageArnold = cv2.imread("examples/2.jpg")
 imageMultiple = cv2.imread("examples/3.jpg")
+imagePoroh = cv2.imread("examples/5.jpg")
 imageMe = cv2.imread("examples/4.jpg")
 
-images = [imagePoroshenko, imageArnold, imageMultiple, imageMe]
+images = [imagePoroshenko, imageArnold, imageMultiple, imageMe, imagePoroh]
 
 for i in range(len(images)):
     encodings = face_encodings(images[i])
