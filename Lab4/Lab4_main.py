@@ -17,10 +17,11 @@ for i in range(len(images)):
     for encoding in encodings:
         counts = {}
         for (name, encodings) in name_encodings_dict.items():
-            counts [name] = nb_of_matches (encodings, encoding)
-        if all (count == 0 for count in counts.values()):
+            counts[name] = nb_of_matches(encodings, encoding)
+        if all(count == 0 for count in counts.values()):
             name = "Unknown"
-        else: name = max(counts, key=counts.get)
+        else:
+            name = max(counts, key=counts.get)
         names.append(name)
     for rect, name in zip(face_rects(images[i]), names):
         x1, y1, x2, y2 = rect.left(), rect.top(), rect.right(), rect.bottom()
